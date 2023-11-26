@@ -1,7 +1,5 @@
 # CS 110L: Safety in Systems Programming
 
-[TOC]
-
 ## Overview
 
 This repo is my learning material for CS110L, including notes and codes.
