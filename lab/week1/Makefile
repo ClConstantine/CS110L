@@ -6,8 +6,8 @@ PROGS = $(C_PROGS) $(CXX_PROGS)
 
 # Choosing a compiler: We want LLVM (clang) so that we can use sanitizers
 # NOTE: if you are not running on myth, you may need to change this.
-CC = clang-10
-CXX = clang++-10
+CC = gcc
+CXX = g++
 
 # Flags for C compiler:
 CFLAGS = -g -O0 -Wall -Wextra -std=gnu99
@@ -48,7 +48,8 @@ $(CXX_PROGS) $(EXTRA_CXX_PROGS): %:%.o
 	$(CXX) $^ $(LDFLAGS) -o $@
 
 clean::
-	rm -fr $(C_PROGS) $(C_PROGS_OBJ)
-	rm -fr $(CXX_PROGS) $(CXX_PROGS_OBJ)
+	del -fr $(C_PROGS) $(C_PROGS_OBJ)
+	del -fr $(CXX_PROGS) $(CXX_PROGS_OBJ)
+	del *.exe
 
 .PHONY: all clean
