@@ -10,9 +10,9 @@ In this course, You will learn an fantastic language, Rust.  You may gain a comp
 
 在这门课程中，你将学习一门非常神奇的语言—— Rust。你会全面了解 C 中存在的内存泄漏、指针不当使用等等问题。但 C 语言的高效性使其在系统编程中无法被具有 GC（垃圾回收）的高级语言如 Java 所替代。而 Rust 的目标是在解决 C 语言中安全问题的同时不牺牲效率，保持高效。
 
-Thanks for Stanford and Ryan Eberhardt for offering those course material and video.
+Thanks to Stanford and Ryan Eberhardt for offering those course material and video.Thanks to [@fung-hwang](https://github.com/fung-hwang) for offering [adaptation](https://github.com/fung-hwang/CS110L-2020spr) of the course.
 
-感谢 Stanford 和 Ryan Eberhardt 提供的课程材料和视频。
+感谢 Stanford 和 Ryan Eberhardt 提供的课程材料和视频。感谢 [@fung-hwang](https://github.com/fung-hwang)  为课程提供的[适配](https://github.com/fung-hwang/CS110L-2020spr)。
 
 ## Q&A
 
