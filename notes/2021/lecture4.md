@@ -2,9 +2,9 @@
 
 ## ownership in memory
 
-由于所有权模型的存在,静止`shallow copy`(浅拷贝)
+由于所有权模型的存在,禁止`shallow copy`(浅拷贝)
 
-![](..\..\pic\lecture4\1.jpg)
+![](..\..\pic\2021\lecture4\1.jpg)
 
 当超出生命周期(`{}`决定),会调用特殊的释放函数,类似于`free`和`destructor`的特性,称为`Drop function`
 
@@ -28,7 +28,7 @@ println!("{} {}",julio,ryan);
 
 `mut`关键字能让变量可以修改
 
-![](..\..\pic\lecture4\2.jpg)
+![](..\..\pic\2021\lecture4\2.jpg)
 
 所以可以存在引用变量(reference == Borrowing Type),代表就是借的
 
@@ -81,7 +81,7 @@ fn main() {
 
 同时存在可变和不可变,这里`for`是宏
 
-![](..\..\pic\lecture4\3.jpg)
+![](..\..\pic\2021\lecture4\3.jpg)
 
 通过所有权模型和引用规则,我们可以避免很多内存问题
 
