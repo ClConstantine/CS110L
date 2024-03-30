@@ -27,6 +27,13 @@ fn pick_a_random_word() -> String {
     String::from(words[rand::thread_rng().gen_range(0, words.len())].trim())
 }
 
+fn print_info(counter: &u32, guessed_word: &Vec<char>,guessed_letter: &Vec<char>){
+    println!("The word so far is {}",guessed_word.clone().into_iter().collect::<String>());
+    println!("You have guessed the following letters: {}",guessed_letter.iter().collect::<String>());
+    println!("You have {} guesses left",counter);
+    print!("Please enter your guess: ");
+}
+
 fn main() {
     let secret_word = pick_a_random_word();
     // Note: given what you know about Rust so far, it's easier to pull characters out of a
@@ -35,6 +42,54 @@ fn main() {
     let secret_word_chars: Vec<char> = secret_word.chars().collect();
     // Uncomment for debugging:
     // println!("random word: {}", secret_word);
+    
+    println!("Welcome to CS110L Hangman!");
+    let mut counter = NUM_INCORRECT_GUESSES;
+    let mut guessed_word: Vec<char> = vec!['-'; secret_word.len()];
+    let mut guessed_letter: Vec<char> = Vec::new();
+    let found_flag = false;
 
-    // Your code here! :)
+    // for c in &secret_word_chars{
+    //     print!("{}",c);
+    // }
+    // println!();
+
+    while found_flag == false && counter > 0 {
+        print_info(&counter,&guessed_word,&guessed_letter);
+        io::stdout().flush().unwrap();
+
+        let mut guess = String::new();
+        io::stdin()
+            .read_line(&mut guess)
+            .expect("Failed to read line");
+        let guess = guess.trim().chars().next().unwrap();
+        
+        guessed_letter.push(guess);
+
+        let mut found = false;
+        for i in 0..secret_word.len(){
+            if secret_word_chars[i] == guess{
+                guessed_word[i] = guess;
+                found = true;
+            }
+        }
+        if found == false{
+            counter -= 1;
+            if counter == 0{
+                break;
+            }
+            println!("Incorrect! You have {} guesses left", counter);
+        }
+
+        println!();
+        if guessed_word.iter().all(|&c| c != '-'){
+            println!("Congratulations! You guessed the word: {}", secret_word);
+            break;
+        }
+    }
+
+    if counter == 0{
+        println!("\nSorry, you ran out of guesses! The word was: {}", secret_word);
+    }
+
 }

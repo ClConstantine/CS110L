@@ -270,10 +270,7 @@ fn main() {
     let result = divide(10, 2).unwrap();
     println!("Result: {}", result);
 }
-
 ```
-
-
 
 #### expect
 
